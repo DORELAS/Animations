@@ -1,0 +1,279 @@
+.container {
+   
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 10px solid salmon;
+   
+}
+
+.box {
+    
+    height: 100%;
+    background-color: aquamarine;
+    transform-origin: bottom right;
+    transition: width 300ms, height 600ms, transform 900ms;
+    pointer-events: none;
+  
+}
+
+.container:hover .box {
+    width: 400px;
+    height: 400px;
+    transform: rotate(30deg);
+    
+}
+
+label {
+    position: relative;
+   
+    
+}
+
+#checkbox {
+    display: none;
+}
+
+.button {
+    display: inline-block;
+    height: 50px;
+    width: 150px;
+    background-color: aqua;
+    border-radius: 20px;
+    transform: background 0.5s ease;
+}
+
+.button::before {
+    content: " ";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: aliceblue;
+    top: -45px;
+    left: -5px;
+    border-radius: 45px;
+    transform: all 0.5s ease;
+}
+
+#checkbox:checked + .button {
+    background: darksalmon;
+} 
+
+#checkbox:checked + .button::before {
+    background: aliceblue;
+    left: 85px;
+}
+
+
+.button::after {
+    content: "off";
+    text-align: left;
+    text-transform: uppercase;
+    position: absolute;
+    color: black;
+    left: 80px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    top: -41px;
+    transition: left 0.5s ease;
+}
+
+#checkbox:checked + .button::after {
+    content: "on";
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    color: black;
+    left: 10px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    top: -41px;
+   
+}
+
+.progress {
+    border: 2px solid salmon;
+    height: 50px;
+}
+
+.progress-bar {
+    background-color: aquamarine;
+    height: 100%;
+    width: 0%;
+    transition: width 10s ease-in;
+}
+
+.progress:hover .progress-bar {
+    width: 99%;
+}
+
+.spin {
+    background-color: bisque;
+    padding: 20px;
+}
+
+.spin:hover .container1 {
+    transform: translateX(1050px) rotate(7200deg);
+}
+
+.container1 {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 10px dashed aquamarine;
+    border-radius: 50%;  
+    transition: transform 5s ease-out;
+}
+
+.wheel {
+    height: 100%;
+    text-align: center;
+    line-height: 200px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color:darkturquoise;   
+}
+
+
+
+.box1 {
+    width: 250px;
+    height: 250px;
+    background-color: darksalmon;
+    animation: expand 5s infinite;
+}
+
+@keyframes expand {
+    
+    from {
+        width: 700px;
+        height: 700px;
+    }
+
+    to {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+
+.spinn {
+    width: 100px;
+    height: 100px;
+    border: 5px solid aqua;
+    border-radius: 50%;
+    position: relative;
+    margin: 50px;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+.spinn::before {
+    content: " ";
+    width: 50px;
+    height: 50px;
+    top: 25px;
+    left: 25px;
+    background-color: salmon;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.spinn::after {
+    content: " ";
+    width: 25px;
+    height: 25px;
+    background-color: salmon;
+    border-radius: 50%;
+    position: absolute;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.road {
+    width: 70%;
+    position: relative;
+    border-top: 12px dotted salmon;
+    margin: 30px auto;
+}
+
+.pacman {
+    position: absolute;
+    animation: move 8s linear infinite;
+}
+
+.pacman::before, .pacman::after {
+    content: " ";
+    display: block;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -35px;
+    border: solid 30px aqua;
+    border-radius: 50%;
+}
+
+.pacman::before{
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: moveTop 0.1s linear infinite alternate;
+}
+
+.pacman::after {
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: moveBottom 0.1s linear infinite alternate;
+}
+
+@keyframes moveTop {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(40deg);
+    }
+}
+
+
+@keyframes moveBottom {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-40deg);
+    }
+}
+
+@keyframes move {
+    0% {
+        left: 0%;
+        transform: scaleX(1);
+    }
+    
+     49% {
+        left: 100%;
+        transform: scaleX(1);
+    }
+    
+    50% {
+        left: 100%;
+        transform: scaleX(-1);
+    }
+    100% {
+        left: 0%;
+        transform: scaleX(-1);
+    }
+}
